@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Path to Health &mdash; Brand Guidelines (Final)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EC; --cream-deep:#F2EBDB; --cream-rule:#E7DFCC;
+    --ink:#2A241B; --muted:#5E564A;
+    /* brand palette — gradation endpoints: pink→orange, yellow→green, blue→violet */
+    --red:#FF5C8A; --yellow:#FFD24D; --blue:#4DA6FF;
+    --orange:#FF9248; --green:#79CF63; --violet:#8A5CF0;
+    /* earthy support palette — grounds the vibrancy */
+    --mountain:#6A89A8; --mountain-deep:#34495E; --sage:#8FA487;
+    --gold-earth:#E5B742; --coral:#C97A52; --rose:#C9697A;
+    --serif:'Fraunces',ui-serif,Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);font-weight:400;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.7;overflow-x:hidden}
+  a{color:var(--coral)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+  .spectrum-rule{height:3px;border:0;border-radius:3px;background:linear-gradient(90deg,var(--red),var(--orange) 20%,var(--yellow) 40%,var(--green) 60%,var(--blue) 80%,var(--violet) 100%)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:22px}
+  .spectral{font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;background:linear-gradient(95deg,var(--red),var(--orange) 20%,var(--yellow) 42%,var(--green) 62%,var(--blue) 82%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+  /* COVER */
+  .cover{position:relative;padding:88px 40px 64px;text-align:center;overflow:hidden}
+  .cover::before{content:"";position:absolute;top:-120px;left:50%;width:100vw;transform:translateX(-50%);height:520px;z-index:0;pointer-events:none;
+    background:radial-gradient(60% 70% at 28% 28%,rgba(226,59,69,.14),transparent 60%),radial-gradient(55% 65% at 78% 30%,rgba(92,141,239,.15),transparent 58%),radial-gradient(70% 80% at 50% 108%,rgba(255,194,51,.16),transparent 60%)}
+  .cover>*{position:relative;z-index:1}
+  .cover .mark{width:112px;height:auto;margin:0 auto 30px;display:block}
+  .cover h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,6vw,84px);line-height:.98;letter-spacing:-.03em;margin-bottom:20px;font-variation-settings:"opsz" 144,"SOFT" 40}
+  .cover .sub{font-size:19px;color:var(--muted);max-width:52ch;margin:0 auto 30px}
+  .cover .meta{font-size:12.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  .status{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:8px 18px;border:1px solid var(--cream-rule);border-radius:100px;font-size:12.5px;color:var(--muted);background:rgba(255,255,255,.4)}
+  .status .dot{width:8px;height:8px;border-radius:50%;background:#4fae63}
+
+  section{padding:74px 0}
+  section.tint{background:linear-gradient(160deg,#F6F0E4,#F1EAD9 55%,#ECE3D1)}
+  .num{font-family:var(--serif);font-style:italic;color:var(--coral);font-size:15px;font-weight:400}
+  .section-head{max-width:66ch;margin-bottom:40px}
+  .section-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4.4vw,52px);line-height:1.04;letter-spacing:-.025em;margin:6px 0 16px;font-variation-settings:"opsz" 144,"SOFT" 50}
+  .section-head p{font-size:18px;color:var(--muted)}
+  h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.2;letter-spacing:-.01em;margin-bottom:8px;font-variation-settings:"opsz" 144,"SOFT" 50}
+  h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:12px}
+  p.body{font-size:16px;color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:var(--cream-deep);border-radius:14px;padding:28px 30px}
+  .card p{font-size:14px;color:var(--muted)}
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:9px}
+  ul.clean li{font-size:14px;color:var(--muted);padding-left:20px;position:relative}
+  ul.clean li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold-earth)}
+
+  .logo-stage{background:var(--cream);border:1px solid var(--cream-rule);border-radius:16px;display:grid;place-items:center;padding:56px;min-height:300px}
+  .logo-stage svg{width:200px;height:auto}
+  .lockup{display:flex;align-items:center;gap:16px}
+  .lockup .mk{width:78px;height:auto;flex:none}
+  .lockup .word{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;line-height:.95;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 40}
+  .lockup .word small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:8px}
+  .caption{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center}
+
+  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .rule{border-radius:14px;padding:22px 24px;border:1px solid var(--cream-rule)}
+  .rule.no{background:#FBF1EE;border-color:#F0D9D2}
+  .rule .tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+  .rule.yes .tag{color:#4f8a55} .rule.no .tag{color:#B4573F}
+  .rule p{font-size:13.5px;color:var(--muted)}
+
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .swatches.six{grid-template-columns:repeat(3,1fr)}
+  .sw .chip{height:76px;border-radius:10px;border:1px solid rgba(0,0,0,.06)}
+  .sw .lab{margin-top:8px;font-size:12px}
+  .sw .lab b{display:block;font-size:13px;color:var(--ink)}
+  .sw .lab span{color:var(--muted);font-variant-numeric:tabular-nums}
+  .callout{margin-top:34px;padding:24px 28px;background:var(--cream-deep);border-radius:12px;border-left:3px solid var(--gold-earth)}
+  .callout p{font-size:14.5px;color:var(--ink)}
+
+  .dl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:680px}
+  .dl{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 22px;border:1px solid var(--cream-rule);border-radius:12px;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:.18s;text-align:left}
+  .dl:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+  .dl .fmt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.55}
+  .dl-note{font-size:13px;color:var(--muted);margin-top:16px}
+  footer{padding:60px 0 46px;border-top:1px solid var(--cream-rule);margin-top:20px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+
+  @media(max-width:820px){.grid2,.grid3,.rules,.swatches{grid-template-columns:1fr 1fr}.section-head h2{font-size:34px}}
+  @media(max-width:520px){.grid2,.grid3,.rules,.swatches,.swatches.six{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ============ REUSABLE LOGO MARK (pink·yellow·blue circles + baked orange·green·violet overlaps, white heart) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="gPink" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF7CA6"/><stop offset="100%" stop-color="#F84D82"/></linearGradient>
+  <linearGradient id="gYellow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFD95C"/><stop offset="100%" stop-color="#FDBE2A"/></linearGradient>
+  <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6FB6FF"/><stop offset="100%" stop-color="#3F97F2"/></linearGradient>
+  <clipPath id="mkL"><circle cx="89.95" cy="85.48" r="77.69"/></clipPath>
+  <clipPath id="mkR"><circle cx="180.78" cy="85.48" r="77.69"/></clipPath>
+  <g id="logoMark">
+    <!-- primaries: pink (TL) · yellow (TR) · blue (bottom) -->
+    <circle cx="89.95" cy="85.48" r="77.69" fill="url(#gPink)"/>
+    <circle cx="180.78" cy="85.48" r="77.69" fill="url(#gYellow)"/>
+    <path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="url(#gBlue)"/>
+    <!-- overlaps: orange (pink∩yellow, top) · violet (pink∩blue, lower-left) · green (yellow∩blue, lower-right) -->
+    <g clip-path="url(#mkL)"><circle cx="180.78" cy="85.48" r="78.7" fill="#F05029"/></g>
+    <g clip-path="url(#mkL)"><path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#673CB3"/></g>
+    <g clip-path="url(#mkR)"><path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#479838"/></g>
+    <!-- white heart: all three -->
+    <g clip-path="url(#mkL)"><g clip-path="url(#mkR)"><path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#FFFFFF"/></g></g>
+  </g>
+</defs></svg>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <svg class="mark" viewBox="0 0 270 248" aria-hidden="true"><use href="#logoMark"/></svg>
+  <div class="eyebrow">Path to Health &middot; Whole-person medicine, Cape Town</div>
+  <h1>Brand <span class="spectral">Guidelines.</span></h1>
+  <p class="sub">The mark, the palette, the type, and the rules for using them &mdash; one system for the Path to Health Centre and the PATH Method.</p>
+  <div class="meta">Final &middot; 2 July 2026 &middot; For the team</div>
+  <div class="status"><span class="dot"></span> Logo &amp; core system locked 30 June 2026 &middot; PMS colour spec in production</div>
+</div>
+
+<div class="wrap"><hr class="spectrum-rule"></div>
+
+<!-- ============ 01 THE MARK ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">01 &middot; The Mark</div>
+      <h2>The three-circle heart.</h2>
+      <p>Raoul&rsquo;s threefold, freed from the stale diagram: three overlapping circles &mdash; each a <strong>gradation</strong> (pink&rarr;orange, yellow&rarr;green, blue&rarr;violet) &mdash; whose edges carve a <strong>heart at the centre</strong>. Body, mind, and nature, with care at the core. Where the circles cross, the colours combine into new hues &mdash; primary colour into infinite potential. <strong>One mark serves the whole brand</strong>; the Centre and the Method share it.</p>
+    </div>
+
+    <div class="logo-stage">
+      <svg viewBox="0 0 270 248" aria-hidden="true"><use href="#logoMark"/></svg>
+    </div>
+    <p class="caption">Primary logo &mdash; Material-based (subtractive) &middot; on warm cream &middot; white heart. The definitive mark.</p>
+
+    <div class="grid2" style="margin-top:44px">
+      <div>
+        <h4>How it&rsquo;s built</h4>
+        <p class="body">Two circles above, one below. Their overlap carves the heart; nothing else is drawn. Each circle holds a <strong>gradation</strong> &mdash; pink&rarr;orange, yellow&rarr;green, blue&rarr;violet &mdash; and where they cross, the colours multiply into new hues. The heart at the centre is always <strong>white</strong>.</p>
+      </div>
+      <div>
+        <h4>Where it lives</h4>
+        <p class="body">The mark sits on <strong>light, warm grounds</strong> (cream) &mdash; never on dark. It is one identity used in two places: paired with <em>Path to Health</em> for the Centre, and with <em>PATH Method</em> for the method. Same mark, different wordmark.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 LOCKUPS ============ -->
+<section class="tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">02 &middot; Lockups</div>
+      <h2>One mark, two names.</h2>
+      <p>The Centre and the Method are <strong>peers, not parent and child</strong>. They share the mark and the type; the wordmark and the context tell them apart.</p>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="logo-stage">
+          <div class="lockup">
+            <svg class="mk" viewBox="0 0 270 248" aria-hidden="true"><use href="#logoMark"/></svg>
+            <div class="word">Path to Health<small>Centre &middot; Cape Town</small></div>
+          </div>
+        </div>
+        <p class="caption">The Centre &mdash; the physical clinic, the proving ground.</p>
+      </div>
+      <div>
+        <div class="logo-stage">
+          <div class="lockup">
+            <svg class="mk" viewBox="0 0 270 248" aria-hidden="true"><use href="#logoMark"/></svg>
+            <div class="word">PATH Method<small>The inner work, made teachable</small></div>
+          </div>
+        </div>
+        <p class="caption">The Method &mdash; the IP, held to outlive its founder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 FALLBACK ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">03 &middot; The Three Marks</div>
+      <h2>Primary, secondary, tertiary.</h2>
+      <p>The full-colour mark is the <strong>primary</strong> and is always preferred. The <strong>secondary</strong> (shaded greyscale) and <strong>tertiary</strong> (outline) are for one-colour contexts &mdash; book spine, foil, embossing, stamps, very small sizes.</p>
+    </div>
+    <div class="grid3">
+      <div>
+        <div class="logo-stage" style="min-height:220px">
+          <svg viewBox="0 0 270 248" style="width:150px" aria-hidden="true"><use href="#logoMark"/></svg>
+        </div>
+        <p class="caption"><b>Primary</b> &mdash; full colour</p>
+      </div>
+      <div>
+        <div class="logo-stage" style="min-height:220px">
+          <svg viewBox="0 0 270 248" style="width:150px" aria-hidden="true">
+            <defs><clipPath id="gsL"><circle cx="89.95" cy="85.48" r="77.69"/></clipPath><clipPath id="gsR"><circle cx="180.78" cy="85.48" r="77.69"/></clipPath></defs>
+            <!-- light petals -->
+            <circle cx="89.95" cy="85.48" r="77.69" fill="#B0A897"/>
+            <circle cx="180.78" cy="85.48" r="77.69" fill="#B0A897"/>
+            <path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#B0A897"/>
+            <!-- darker overlaps -->
+            <g clip-path="url(#gsL)"><circle cx="180.78" cy="85.48" r="77.69" fill="#625B4F"/></g>
+            <g clip-path="url(#gsL)"><path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#625B4F"/></g>
+            <g clip-path="url(#gsR)"><path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#625B4F"/></g>
+            <!-- white heart -->
+            <g clip-path="url(#gsL)"><g clip-path="url(#gsR)"><path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z" fill="#FFFFFF"/></g></g>
+          </svg>
+        </div>
+        <p class="caption"><b>Secondary</b> &mdash; shaded greyscale &middot; light petals, dark overlaps</p>
+      </div>
+      <div>
+        <div class="logo-stage" style="min-height:220px">
+          <svg viewBox="0 0 270 248" style="width:150px" aria-hidden="true">
+            <g fill="none" stroke="#2A241B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+              <circle cx="89.95" cy="85.48" r="75.19"/>
+              <circle cx="180.78" cy="85.48" r="75.19"/>
+              <path d="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z"/>
+            </g>
+          </svg>
+        </div>
+        <p class="caption"><b>Tertiary</b> &mdash; outline</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 PALETTE ============ -->
+<section class="tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">04 &middot; Colour</div>
+      <h2>Bright brand, earthy ground.</h2>
+      <p>Three vibrant primaries &mdash; the logo colours &mdash; combine into three secondaries, carried on a warm cream ground, with an earthy support palette that keeps the brightness from ever tipping into a circus.</p>
+    </div>
+
+    <h4>Brand primaries &mdash; the three circles</h4>
+    <div class="swatches" style="margin-bottom:26px">
+      <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#FF7CA6,#F84D82)"></div><div class="lab"><b>Pink</b><span>#FF7CA6 &rarr; #F84D82</span></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#FFD95C,#FDBE2A)"></div><div class="lab"><b>Yellow</b><span>#FFD95C &rarr; #FDBE2A</span></div></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#6FB6FF,#3F97F2)"></div><div class="lab"><b>Blue</b><span>#6FB6FF &rarr; #3F97F2</span></div></div>
+      <div class="sw"><div class="chip" style="background:#FFFFFF;border-color:#E7DFCC"></div><div class="lab"><b>Heart&nbsp;White</b><span>#FFFFFF</span></div></div>
+    </div>
+
+    <h4>Secondaries &mdash; painted where the circles overlap</h4>
+    <div class="swatches six" style="margin-bottom:36px">
+      <div class="sw"><div class="chip" style="background:#F05029"></div><div class="lab"><b>Orange</b><span>#F05029 &middot; pink&nbsp;&cap;&nbsp;yellow</span></div></div>
+      <div class="sw"><div class="chip" style="background:#479838"></div><div class="lab"><b>Green</b><span>#479838 &middot; yellow&nbsp;&cap;&nbsp;blue</span></div></div>
+      <div class="sw"><div class="chip" style="background:#673CB3"></div><div class="lab"><b>Violet</b><span>#673CB3 &middot; pink&nbsp;&cap;&nbsp;blue</span></div></div>
+    </div>
+
+    <h4>Ground &amp; ink</h4>
+    <div class="swatches" style="margin-bottom:36px">
+      <div class="sw"><div class="chip" style="background:#FAF6EC"></div><div class="lab"><b>Cream</b><span>#FAF6EC</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F2EBDB"></div><div class="lab"><b>Cream&nbsp;deep</b><span>#F2EBDB</span></div></div>
+      <div class="sw"><div class="chip" style="background:#2A241B"></div><div class="lab"><b>Ink</b><span>#2A241B</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5E564A"></div><div class="lab"><b>Muted</b><span>#5E564A</span></div></div>
+    </div>
+
+    <h4>Earthy support palette</h4>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#6A89A8"></div><div class="lab"><b>Mountain</b><span>#6A89A8</span></div></div>
+      <div class="sw"><div class="chip" style="background:#8FA487"></div><div class="lab"><b>Sage</b><span>#8FA487</span></div></div>
+      <div class="sw"><div class="chip" style="background:#E5B742"></div><div class="lab"><b>Gold&nbsp;earth</b><span>#E5B742</span></div></div>
+      <div class="sw"><div class="chip" style="background:#C97A52"></div><div class="lab"><b>Coral</b><span>#C97A52</span></div></div>
+      <div class="sw"><div class="chip" style="background:#C9697A"></div><div class="lab"><b>Rose</b><span>#C9697A</span></div></div>
+      <div class="sw"><div class="chip" style="background:#34495E"></div><div class="lab"><b>Mountain&nbsp;deep</b><span>#34495E</span></div></div>
+    </div>
+
+    <div class="callout">
+      <p><strong>In production:</strong> the hex values above are the working screen values. Final <strong>PMS / CMYK</strong> specifications are being produced for the book and print applications (deliverable, end of week). Per 30 June: keep the brand primaries bright and alive, balanced by the earthy support palette on larger surfaces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 TYPE + IMAGERY ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">05 &middot; Type &amp; Imagery</div>
+      <h2>Warm precision, real light.</h2>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <h4>Typography</h4>
+        <p style="font-family:var(--serif);font-size:32px;font-weight:400;color:var(--ink);margin-bottom:2px;font-variation-settings:'opsz' 144,'SOFT' 50">Fraunces</p>
+        <p>Display serif &mdash; the one face that holds both poles: warm and precise. Humane at headline size, crisp and serious as text.</p>
+        <p style="font-family:var(--sans);font-size:18px;font-weight:500;color:var(--ink);margin:16px 0 2px">Inter</p>
+        <p>Body &amp; UI &mdash; neutral, highly legible, unfussy beside Fraunces.</p>
+      </div>
+      <div class="card">
+        <h4>Imagery</h4>
+        <ul class="clean">
+          <li>Authentic clinic &amp; Cape Town photography &mdash; never stock</li>
+          <li>Never mix real and AI-generated imagery</li>
+          <li>Wood, curved windows, botanicals, real light</li>
+          <li>Warmth <em>and</em> rigour &mdash; the nursing station beside the garden</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Voice</h4>
+        <p><strong>Steady, warm, invitational.</strong> We partner, co-create, treat the whole person.</p>
+        <p style="margin-top:10px"><em>Avoid:</em> journey, holistic, empowered, transform, revolutionary, biohack.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 USAGE ============ -->
+<section class="tint">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">06 &middot; Using the Mark</div>
+      <h2>Do &amp; don&rsquo;t.</h2>
+    </div>
+    <div class="rules">
+      <div class="rule yes"><div class="tag">Do</div><p>Place the mark on cream or other light, warm grounds. Give it clear space equal to one circle&rsquo;s radius on every side.</p></div>
+      <div class="rule no"><div class="tag">Don&rsquo;t</div><p>Don&rsquo;t place the mark on dark or black backgrounds &mdash; the mark lives on light only.</p></div>
+      <div class="rule yes"><div class="tag">Do</div><p>Keep the heart white, always. It is the fixed centre of the identity.</p></div>
+      <div class="rule no"><div class="tag">Don&rsquo;t</div><p>Don&rsquo;t recolour the heart, rotate or flip the mark, or reorder the circles.</p></div>
+      <div class="rule yes"><div class="tag">Do</div><p>Use the single-colour line/greyscale mark when colour isn&rsquo;t available (spine, foil, tiny sizes).</p></div>
+      <div class="rule no"><div class="tag">Don&rsquo;t</div><p>Don&rsquo;t stretch, add shadows/outlines, or drop the mark onto a busy photo without clear space.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 DOWNLOADS ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="num">07 &middot; Assets</div>
+      <h2>Download the mark.</h2>
+      <p>Grab the logo in the format you need &mdash; SVG for print and web (scales cleanly, editable), PNG for quick placements. Transparent background; the mark is intended on cream.</p>
+    </div>
+    <div class="dl-grid">
+      <button class="dl" data-asset="primary" data-fmt="svg">Primary &middot; full colour <span class="fmt">SVG</span></button>
+      <button class="dl" data-asset="primary" data-fmt="png">Primary &middot; full colour <span class="fmt">PNG 1024</span></button>
+      <button class="dl" data-asset="grey" data-fmt="svg">Secondary &middot; greyscale <span class="fmt">SVG</span></button>
+      <button class="dl" data-asset="grey" data-fmt="png">Secondary &middot; greyscale <span class="fmt">PNG 1024</span></button>
+      <button class="dl" data-asset="outline" data-fmt="svg">Tertiary &middot; outline <span class="fmt">SVG</span></button>
+      <button class="dl" data-asset="primary" data-fmt="png512">Favicon &middot; full colour <span class="fmt">PNG 512</span></button>
+    </div>
+    <p class="dl-note">Final PMS / CMYK production files for the book &amp; print follow separately.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <span>Path to Health &mdash; Brand Guidelines &middot; Final, 2 July 2026</span>
+      <span>Prepared for Raoul, Dana, Karri, Zorena &amp; team</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var BOT="M135,95.63s6.31-10.24,21.55-6.55c32.63,9.21,56.51,39.28,56.51,74.86,0,42.91-34.78,77.69-77.69,77.69s-77.69-34.78-77.69-77.69c0-35.11,23.28-64.77,55.25-74.4l-.08.02c15.24-3.69,22.15,6.07,22.15,6.07Z";
+  var OPEN='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 248" width="270" height="248">';
+
+  function svgPrimary(){
+    return OPEN
+      +'<defs>'
+      +'<linearGradient id="gPink" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF7CA6"/><stop offset="100%" stop-color="#F84D82"/></linearGradient>'
+      +'<linearGradient id="gYellow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFD95C"/><stop offset="100%" stop-color="#FDBE2A"/></linearGradient>'
+      +'<linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6FB6FF"/><stop offset="100%" stop-color="#3F97F2"/></linearGradient>'
+      +'<clipPath id="mkL"><circle cx="89.95" cy="85.48" r="77.69"/></clipPath>'
+      +'<clipPath id="mkR"><circle cx="180.78" cy="85.48" r="77.69"/></clipPath>'
+      +'</defs>'
+      +'<circle cx="89.95" cy="85.48" r="77.69" fill="url(#gPink)"/>'
+      +'<circle cx="180.78" cy="85.48" r="77.69" fill="url(#gYellow)"/>'
+      +'<path d="'+BOT+'" fill="url(#gBlue)"/>'
+      +'<g clip-path="url(#mkL)"><circle cx="180.78" cy="85.48" r="78.7" fill="#F05029"/></g>'
+      +'<g clip-path="url(#mkL)"><path d="'+BOT+'" fill="#673CB3"/></g>'
+      +'<g clip-path="url(#mkR)"><path d="'+BOT+'" fill="#479838"/></g>'
+      +'<g clip-path="url(#mkL)"><g clip-path="url(#mkR)"><path d="'+BOT+'" fill="#FFFFFF"/></g></g>'
+      +'</svg>';
+  }
+  function svgGrey(){
+    return OPEN
+      +'<defs><clipPath id="mkL"><circle cx="89.95" cy="85.48" r="77.69"/></clipPath><clipPath id="mkR"><circle cx="180.78" cy="85.48" r="77.69"/></clipPath></defs>'
+      +'<circle cx="89.95" cy="85.48" r="77.69" fill="#B0A897"/>'
+      +'<circle cx="180.78" cy="85.48" r="77.69" fill="#B0A897"/>'
+      +'<path d="'+BOT+'" fill="#B0A897"/>'
+      +'<g clip-path="url(#mkL)"><circle cx="180.78" cy="85.48" r="78.7" fill="#625B4F"/></g>'
+      +'<g clip-path="url(#mkL)"><path d="'+BOT+'" fill="#625B4F"/></g>'
+      +'<g clip-path="url(#mkR)"><path d="'+BOT+'" fill="#625B4F"/></g>'
+      +'<g clip-path="url(#mkL)"><g clip-path="url(#mkR)"><path d="'+BOT+'" fill="#FFFFFF"/></g></g>'
+      +'</svg>';
+  }
+  function svgOutline(){
+    return OPEN
+      +'<g fill="none" stroke="#2A241B" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">'
+      +'<circle cx="89.95" cy="85.48" r="75.19"/>'
+      +'<circle cx="180.78" cy="85.48" r="75.19"/>'
+      +'<path d="'+BOT+'"/>'
+      +'</g></svg>';
+  }
+  function svgFor(asset){ return asset==='grey'?svgGrey():asset==='outline'?svgOutline():svgPrimary(); }
+
+  function saveBlob(blob, name){
+    var url=URL.createObjectURL(blob), a=document.createElement('a');
+    a.href=url; a.download=name; document.body.appendChild(a); a.click();
+    document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(url);},1000);
+  }
+  function downloadSVG(asset){ saveBlob(new Blob([svgFor(asset)],{type:'image/svg+xml'}), 'path-to-health-'+asset+'.svg'); }
+  function downloadPNG(asset, size){
+    var svg=svgFor(asset), url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'})), img=new Image();
+    img.onload=function(){
+      var c=document.createElement('canvas'); c.width=size; c.height=Math.round(size*248/270);
+      c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+      URL.revokeObjectURL(url);
+      c.toBlob(function(b){ saveBlob(b, 'path-to-health-'+asset+'-'+size+'.png'); });
+    };
+    img.onerror=function(){ URL.revokeObjectURL(url); alert('PNG export failed in this browser — the SVG download works everywhere.'); };
+    img.src=url;
+  }
+  document.querySelectorAll('.dl').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var a=btn.dataset.asset, f=btn.dataset.fmt;
+      if(f==='svg') downloadSVG(a);
+      else if(f==='png') downloadPNG(a,1024);
+      else if(f==='png512') downloadPNG(a,512);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
