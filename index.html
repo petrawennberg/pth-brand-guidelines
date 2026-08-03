@@ -464,14 +464,16 @@
   function innerMark(){ return svgPrimary().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,''); }
   function buildLockup(k){
     var b=BRANDS[k], m=document.createElement('canvas').getContext('2d');
-    m.font='400 68px Georgia, "Times New Roman", serif'; var wW=m.measureText(b.name).width;
-    m.font='600 15px Arial, sans-serif'; var subW=m.measureText(b.sub).width+(b.sub.length-1)*2;
+    m.font='400 68px Gelasio, Georgia, serif'; var wW=Math.ceil(m.measureText(b.name).width);
+    m.font='600 15px Inter, Arial, sans-serif'; var subW=Math.ceil(m.measureText(b.sub).width+(b.sub.length-1)*2);
     var textW=Math.max(wW,subW), pad=40, markW=150, markH=markW*248/270, gap=30, textX=pad+markW+gap;
-    var W=Math.ceil(textX+textW+pad+24), H=Math.ceil(pad+markH+pad), cy=pad+markH/2, wBase=cy+16, subBase=wBase+28;
+    var W=textX+textW+pad, H=Math.ceil(pad+markH+pad), cy=pad+markH/2, wBase=cy+16, subBase=wBase+28;
+    // textLength forces each run to its measured width, so the wordmark can never overflow the frame
+    // regardless of which serif a given machine substitutes for Gelasio.
     var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'
       +'<svg x="'+pad+'" y="'+pad+'" width="'+markW+'" height="'+markH+'" viewBox="0 0 270 248">'+innerMark()+'</svg>'
-      +'<text x="'+textX+'" y="'+wBase+'" font-family="Gelasio, Georgia, serif" font-size="68" font-weight="400" fill="#2A241B">'+b.name+'</text>'
-      +'<text x="'+textX+'" y="'+subBase+'" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="#5E564A">'+b.sub+'</text></svg>';
+      +'<text x="'+textX+'" y="'+wBase+'" font-family="Gelasio, Georgia, serif" font-size="68" font-weight="400" fill="#2A241B" textLength="'+wW+'" lengthAdjust="spacingAndGlyphs">'+b.name+'</text>'
+      +'<text x="'+textX+'" y="'+subBase+'" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="#5E564A" textLength="'+subW+'" lengthAdjust="spacingAndGlyphs">'+b.sub+'</text></svg>';
     return {svg:svg,W:W,H:H};
   }
   function downloadLockupSVG(k){ saveBlob(new Blob([buildLockup(k).svg],{type:'image/svg+xml'}), BRANDS[k].file+'-lockup.svg'); }
