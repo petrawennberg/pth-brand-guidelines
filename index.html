@@ -66,6 +66,13 @@
   .lockup .word{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;line-height:.95;color:var(--ink);font-variation-settings:"opsz" 144,"SOFT" 40}
   .lockup .word small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:8px}
   .caption{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center}
+  /* lockups: Center column wider + tighter mark/padding so both wordmarks stay on one line */
+  .lockups2{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:start}
+  .lockups2 .logo-stage{padding:40px}
+  .lockups2 .lockup{gap:14px}
+  .lockups2 .lockup .mk{width:62px}
+  .lockups2 .lockup .word{font-size:27px}
+  @media(max-width:640px){.lockups2{grid-template-columns:1fr}}
 
   .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .rule{border-radius:14px;padding:22px 24px;border:1px solid var(--cream-rule)}
@@ -165,9 +172,9 @@
       <h2>One mark, two names.</h2>
       <p>The Center and the Method are <strong>peers, not parent and child</strong>. They share the mark and the type; the wordmark and the context tell them apart.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:26px">
+    <div class="lockups2">
       <div>
-        <div class="logo-stage" style="min-height:180px">
+        <div class="logo-stage" style="min-height:200px">
           <div class="lockup">
             <svg class="mk" viewBox="0 0 270 248" aria-hidden="true"><use href="#logoMark"/></svg>
             <div class="word">Path to Health Center<small>Cape Town</small></div>
@@ -176,7 +183,7 @@
         <p class="caption">The Center &mdash; the physical clinic, the proving ground.</p>
       </div>
       <div>
-        <div class="logo-stage" style="min-height:180px">
+        <div class="logo-stage" style="min-height:200px">
           <div class="lockup">
             <svg class="mk" viewBox="0 0 270 248" aria-hidden="true"><use href="#logoMark"/></svg>
             <div class="word">PATH Method<small>The inner work, made teachable</small></div>
