@@ -352,9 +352,11 @@
   <div class="wrap">
     <div class="section-head">
       <div class="num">07 &middot; Assets</div>
-      <h2>Download the mark.</h2>
-      <p>Grab the logo in the format you need &mdash; SVG for print and web (scales cleanly, editable), PNG for quick placements. Transparent background; the mark is intended on cream.</p>
+      <h2>Download the assets.</h2>
+      <p>Everything below is transparent-background and generated on click &mdash; SVG for print and web (scales cleanly, editable), PNG for quick placements. The mark is intended on cream.</p>
     </div>
+
+    <h4 style="margin-bottom:14px">The mark</h4>
     <div class="dl-grid">
       <button class="dl" data-asset="primary" data-fmt="svg">Primary &middot; full colour <span class="fmt">SVG</span></button>
       <button class="dl" data-asset="primary" data-fmt="png">Primary &middot; full colour <span class="fmt">PNG 1024</span></button>
@@ -363,7 +365,22 @@
       <button class="dl" data-asset="outline" data-fmt="svg">Tertiary &middot; outline <span class="fmt">SVG</span></button>
       <button class="dl" data-asset="primary" data-fmt="png512">Favicon &middot; full colour <span class="fmt">PNG 512</span></button>
     </div>
-    <p class="dl-note">Final PMS / CMYK production files for the book &amp; print follow separately.</p>
+
+    <h4 style="margin:36px 0 14px">Full logo &mdash; mark &amp; wordmark</h4>
+    <div class="dl-grid">
+      <button class="dl" data-lockup="center" data-fmt="svg">Path to Health Center &middot; lockup <span class="fmt">SVG</span></button>
+      <button class="dl" data-lockup="center" data-fmt="png">Path to Health Center &middot; lockup <span class="fmt">PNG</span></button>
+      <button class="dl" data-lockup="method" data-fmt="svg">PATH Method &middot; lockup <span class="fmt">SVG</span></button>
+      <button class="dl" data-lockup="method" data-fmt="png">PATH Method &middot; lockup <span class="fmt">PNG</span></button>
+    </div>
+
+    <h4 style="margin:36px 0 14px">Social avatars &mdash; square, safe for circular crops</h4>
+    <div class="dl-grid">
+      <button class="dl" data-avatar="cream">Avatar &middot; on cream <span class="fmt">PNG 1024</span></button>
+      <button class="dl" data-avatar="transparent">Avatar &middot; transparent <span class="fmt">PNG 1024</span></button>
+    </div>
+
+    <p class="dl-note">Wordmark set in Gelasio (Georgia-compatible, so lockup files render the same everywhere). Final PMS / CMYK production files for the book &amp; print follow separately.</p>
   </div>
 </section>
 
@@ -438,8 +455,43 @@
     img.onerror=function(){ URL.revokeObjectURL(url); alert('PNG export failed in this browser — the SVG download works everywhere.'); };
     img.src=url;
   }
+  var BRANDS={center:{name:'Path to Health Center',sub:'CAPE TOWN',file:'path-to-health-center'},method:{name:'PATH Method',sub:'THE INNER WORK, MADE TEACHABLE',file:'path-method'}};
+  function innerMark(){ return svgPrimary().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,''); }
+  function buildLockup(k){
+    var b=BRANDS[k], m=document.createElement('canvas').getContext('2d');
+    m.font='400 68px Gelasio, Georgia, serif'; var wW=m.measureText(b.name).width;
+    m.font='600 15px Inter, Arial, sans-serif'; var subW=m.measureText(b.sub).width+(b.sub.length-1)*2;
+    var textW=Math.max(wW,subW), pad=40, markW=150, markH=markW*248/270, gap=30, textX=pad+markW+gap;
+    var W=Math.ceil(textX+textW+pad), H=Math.ceil(pad+markH+pad), cy=pad+markH/2, wBase=cy+16, subBase=wBase+28;
+    var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'
+      +'<svg x="'+pad+'" y="'+pad+'" width="'+markW+'" height="'+markH+'" viewBox="0 0 270 248">'+innerMark()+'</svg>'
+      +'<text x="'+textX+'" y="'+wBase+'" font-family="Gelasio, Georgia, serif" font-size="68" font-weight="400" fill="#2A241B">'+b.name+'</text>'
+      +'<text x="'+textX+'" y="'+subBase+'" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="#5E564A">'+b.sub+'</text></svg>';
+    return {svg:svg,W:W,H:H};
+  }
+  function downloadLockupSVG(k){ saveBlob(new Blob([buildLockup(k).svg],{type:'image/svg+xml'}), BRANDS[k].file+'-lockup.svg'); }
+  function downloadLockupPNG(k){
+    var L=buildLockup(k), u=URL.createObjectURL(new Blob([L.svg],{type:'image/svg+xml'})), img=new Image(), s=3;
+    img.onload=function(){ var c=document.createElement('canvas'); c.width=Math.round(L.W*s); c.height=Math.round(L.H*s);
+      c.getContext('2d').drawImage(img,0,0,c.width,c.height); URL.revokeObjectURL(u);
+      c.toBlob(function(b){ saveBlob(b, BRANDS[k].file+'-lockup.png'); }); };
+    img.onerror=function(){ URL.revokeObjectURL(u); alert('PNG export failed — the SVG works everywhere.'); };
+    img.src=u;
+  }
+  function downloadAvatar(bg,size){
+    var u=URL.createObjectURL(new Blob([svgPrimary()],{type:'image/svg+xml'})), img=new Image();
+    img.onload=function(){ var c=document.createElement('canvas'); c.width=size; c.height=size; var ctx=c.getContext('2d');
+      if(bg==='cream'){ ctx.fillStyle='#FAF6EC'; ctx.fillRect(0,0,size,size); }
+      var p=0.20, avail=size*(1-2*p), mw=avail, mh=mw*248/270; if(mh>avail){ mh=avail; mw=mh*270/248; }
+      ctx.drawImage(img,(size-mw)/2,(size-mh)/2,mw,mh); URL.revokeObjectURL(u);
+      c.toBlob(function(b){ saveBlob(b,'path-to-health-avatar-'+bg+'-'+size+'.png'); }); };
+    img.onerror=function(){ URL.revokeObjectURL(u); alert('PNG export failed — try the SVG mark.'); };
+    img.src=u;
+  }
   document.querySelectorAll('.dl').forEach(function(btn){
     btn.addEventListener('click', function(){
+      if(btn.dataset.lockup){ var k=btn.dataset.lockup; document.fonts.ready.then(function(){ btn.dataset.fmt==='svg'?downloadLockupSVG(k):downloadLockupPNG(k); }); return; }
+      if(btn.dataset.avatar){ downloadAvatar(btn.dataset.avatar,1024); return; }
       var a=btn.dataset.asset, f=btn.dataset.fmt;
       if(f==='svg') downloadSVG(a);
       else if(f==='png') downloadPNG(a,1024);
