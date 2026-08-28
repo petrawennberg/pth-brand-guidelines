@@ -37,14 +37,13 @@
   /* COVER */
   .cover{position:relative;padding:88px 40px 64px;text-align:center;overflow:hidden}
   .cover::before{content:"";position:absolute;top:-120px;left:50%;width:100vw;transform:translateX(-50%);height:520px;z-index:0;pointer-events:none;
-    background:radial-gradient(60% 70% at 28% 28%,rgba(226,59,69,.14),transparent 60%),radial-gradient(55% 65% at 78% 30%,rgba(92,141,239,.15),transparent 58%),radial-gradient(70% 80% at 50% 108%,rgba(255,194,51,.16),transparent 60%)}
+    background:radial-gradient(60% 70% at 28% 28%,rgba(226,59,69,.14),transparent 60%),radial-gradient(55% 65% at 78% 30%,rgba(92,141,239,.15),transparent 58%),radial-gradient(70% 80% at 50% 108%,rgba(255,194,51,.16),transparent 60%);
+    -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)}
   .cover>*{position:relative;z-index:1}
   .cover .mark{width:112px;height:auto;margin:0 auto 30px;display:block}
   .cover h1{font-family:var(--serif);font-weight:300;font-size:clamp(44px,6vw,84px);line-height:.98;letter-spacing:-.03em;margin-bottom:20px;font-variation-settings:"opsz" 144,"SOFT" 40}
   .cover .sub{font-size:19px;color:var(--muted);max-width:52ch;margin:0 auto 30px}
   .cover .meta{font-size:12.5px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
-  .status{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:8px 18px;border:1px solid var(--cream-rule);border-radius:100px;font-size:12.5px;color:var(--muted);background:rgba(255,255,255,.4)}
-  .status .dot{width:8px;height:8px;border-radius:50%;background:#4fae63}
 
   section{padding:74px 0}
   section.tint{background:linear-gradient(160deg,#F6F0E4,#F1EAD9 55%,#ECE3D1)}
@@ -141,7 +140,6 @@
   <h1>Brand <span class="spectral">Guidelines.</span></h1>
   <p class="sub">The mark, the palette, the type, and the rules for using them &mdash; one system for the Path to Health Center and the PATH Method.</p>
   <div class="meta">Final &middot; 2 July 2026 &middot; For the team</div>
-  <div class="status"><span class="dot"></span> Logo &amp; core system locked 30 June 2026 &middot; PMS colour spec in production</div>
 </div>
 
 <div class="wrap"><hr class="spectrum-rule"></div>
