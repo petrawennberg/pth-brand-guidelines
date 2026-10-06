@@ -111,6 +111,8 @@
   .dl .thumb.wide{width:104px;flex-basis:104px;height:48px;background:#fff}
   .dl .thumb img{max-width:86%;max-height:86%;display:block}
   .dl .thumb.full img{max-width:100%;max-height:100%}
+  .dl .thumb.dark{background:#34495E;border-color:#34495E}
+  a.dl{text-decoration:none}
   .dl:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
   .dl .fmt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.55}
   .dl-note{font-size:13px;color:var(--muted);margin-top:16px}
@@ -150,7 +152,7 @@
   <div class="eyebrow">Path to Health &middot; Whole-person medicine, Cape Town</div>
   <h1>Brand <span class="spectral">Guidelines.</span></h1>
   <p class="sub">The mark, the palette, the type, and the rules for using them &mdash; one system for the Path to Health Center and the PATH Method.</p>
-  <div class="meta">Last updated 23 September 2026</div>
+  <div class="meta">Last updated 6 October 2026</div>
 </div>
 
 <div class="wrap"><hr class="spectrum-rule"></div>
@@ -367,7 +369,7 @@
     <div class="section-head">
       <div class="num">07 &middot; Assets</div>
       <h2>Download the assets.</h2>
-      <p>Everything below is transparent-background and generated on click &mdash; SVG for print and web (scales cleanly, editable), PNG for quick placements. The mark is intended on cream.</p>
+      <p>Everything below is on a transparent background unless the label says <em>cream</em> or <em>dark</em>. SVG for print and web (scales cleanly), PNG for quick placements. Use dark text on light grounds and light text on dark grounds.</p>
     </div>
 
     <h4 style="margin-bottom:14px">The mark</h4>
@@ -380,12 +382,25 @@
       <button class="dl" data-asset="primary" data-fmt="png512">Favicon &middot; full colour <span class="fmt">PNG 512</span></button>
     </div>
 
-    <h4 style="margin:36px 0 14px">Full logo &mdash; mark &amp; wordmark</h4>
+    <h4 style="margin:36px 0 14px">Full logo &mdash; mark &amp; wordmark, transparent background</h4>
     <div class="dl-grid">
-      <button class="dl" data-lockup="center" data-fmt="svg">Path to Health Center &middot; lockup <span class="fmt">SVG</span></button>
-      <button class="dl" data-lockup="center" data-fmt="png">Path to Health Center &middot; lockup <span class="fmt">PNG</span></button>
-      <button class="dl" data-lockup="method" data-fmt="svg">PATH Method &middot; lockup <span class="fmt">SVG</span></button>
-      <button class="dl" data-lockup="method" data-fmt="png">PATH Method &middot; lockup <span class="fmt">PNG</span></button>
+      <a class="dl" href="assets/logos/path-to-health-center-logo-dark-text.svg" download data-img="assets/logos/path-to-health-center-logo-dark-text.png">Center &middot; dark text <span class="fmt">SVG</span></a>
+      <a class="dl" href="assets/logos/path-to-health-center-logo-dark-text.png" download data-img="assets/logos/path-to-health-center-logo-dark-text.png">Center &middot; dark text <span class="fmt">PNG 3&times;</span></a>
+      <a class="dl" href="assets/logos/path-to-health-center-logo-light-text.svg" download data-img="assets/logos/path-to-health-center-logo-light-text.png" data-dark="1">Center &middot; light text <span class="fmt">SVG</span></a>
+      <a class="dl" href="assets/logos/path-to-health-center-logo-light-text.png" download data-img="assets/logos/path-to-health-center-logo-light-text.png" data-dark="1">Center &middot; light text <span class="fmt">PNG 3&times;</span></a>
+      <a class="dl" href="assets/logos/path-method-logo-dark-text.svg" download data-img="assets/logos/path-method-logo-dark-text.png">Method &middot; dark text <span class="fmt">SVG</span></a>
+      <a class="dl" href="assets/logos/path-method-logo-dark-text.png" download data-img="assets/logos/path-method-logo-dark-text.png">Method &middot; dark text <span class="fmt">PNG 3&times;</span></a>
+      <a class="dl" href="assets/logos/path-method-logo-light-text.svg" download data-img="assets/logos/path-method-logo-light-text.png" data-dark="1">Method &middot; light text <span class="fmt">SVG</span></a>
+      <a class="dl" href="assets/logos/path-method-logo-light-text.png" download data-img="assets/logos/path-method-logo-light-text.png" data-dark="1">Method &middot; light text <span class="fmt">PNG 3&times;</span></a>
+    </div>
+    <p class="dl-note">Wordmark set in Gelasio and converted to outlines, so it looks the same on every computer.</p>
+
+    <h4 style="margin:36px 0 14px">Full logo with tagline &mdash; dark text</h4>
+    <div class="dl-grid">
+      <button class="dl" data-lockup="center" data-fmt="svg">Path to Health Center &middot; with tagline <span class="fmt">SVG</span></button>
+      <button class="dl" data-lockup="center" data-fmt="png">Path to Health Center &middot; with tagline <span class="fmt">PNG</span></button>
+      <button class="dl" data-lockup="method" data-fmt="svg">PATH Method &middot; with tagline <span class="fmt">SVG</span></button>
+      <button class="dl" data-lockup="method" data-fmt="png">PATH Method &middot; with tagline <span class="fmt">PNG</span></button>
     </div>
 
     <h4 style="margin:36px 0 14px">Social avatars &mdash; v2 (23 Sep 2026). Big wrap-around text that stays readable in a small circle; round badges for video overlays.</h4>
@@ -417,7 +432,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <span>Path to Health &mdash; Brand Guidelines</span>
-      <span>Last updated 23 September 2026</span>
+      <span>Last updated 6 October 2026</span>
     </div>
   </div>
 </footer>
@@ -521,7 +536,6 @@
     var u=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'})), img=new Image();
     img.onload=function(){ var c=document.createElement('canvas'); c.width=size; c.height=size;
       var ctx=c.getContext('2d');
-      if(!transparent){ ctx.fillStyle='#FBF6EC'; ctx.fillRect(0,0,size,size); }
       ctx.drawImage(img,0,0,size,size); URL.revokeObjectURL(u);
       c.toBlob(function(b){ saveBlob(b,'path-avatar-'+key+(transparent?'-transparent':'')+'-'+size+'.png'); }); };
     img.onerror=function(){ URL.revokeObjectURL(u); alert('PNG export failed in this browser.'); };
@@ -531,11 +545,12 @@
     var svg=null, cls='thumb';
     if(btn.dataset.avatar){ svg=AVATARS[btn.dataset.avatar]; cls='thumb full'; }
     else if(btn.dataset.asset){ svg=svgFor(btn.dataset.asset); }
+    if(btn.dataset.img){ attachThumb(btn, null, 'thumb wide full'+(btn.dataset.dark?' dark':''), btn.dataset.img); return; }
     if(svg){ attachThumb(btn, svg, cls); }
     else if(btn.dataset.lockup){ var k=btn.dataset.lockup;
       document.fonts.ready.then(function(){ attachThumb(btn, buildLockup(k).svg, 'thumb wide full'); }); }
   }
-  function attachThumb(btn, svg, cls){
+  function attachThumb(btn, svg, cls, src){
     var th=btn.querySelector('.thumb');
     if(!th){ th=document.createElement('span'); th.className=cls;
       var img=document.createElement('img'); img.alt=''; th.appendChild(img);
@@ -544,7 +559,7 @@
       while(btn.firstChild) lbl.appendChild(btn.firstChild);
       btn.appendChild(th); btn.appendChild(lbl); if(fmt) btn.appendChild(fmt);
     } else { th.className=cls; }
-    th.querySelector('img').src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+    th.querySelector('img').src=src||('data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg));
   }
   document.querySelectorAll('.dl').forEach(setThumb);
   document.querySelectorAll('.dl').forEach(function(btn){
